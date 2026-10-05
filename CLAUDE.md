@@ -6,7 +6,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Course project for *Aprendizaje de Máquina 2026-20* (Universidad de los Andes): a Kaggle competition classifying the **overall sentiment of Spanish product reviews** into `negativo`, `neutral`, or `positivo`. The full assignment spec is [proyecto202620.pdf](proyecto202620.pdf) (in Spanish) — consult it for rubric and deadline details.
 
-The repo currently holds only the spec and data; no notebooks, environment, or dependency files exist yet. The system `python3` (Homebrew 3.14) does not have scikit-learn installed, so set up a virtual environment before running anything.
+Notebooks live in the **project root** (e.g. `parte1.ipynb`, later `parte2.ipynb`), not in a subfolder, and use paths relative to the root (`data/`, `submissions/`, `models/`). Plans: [PLAN_PARTE1.md](PLAN_PARTE1.md) (current focus) and [PLAN.md](PLAN.md) (both parts).
+
+## Commands
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt          # pins scikit-learn==1.9.1 so the saved .joblib reloads identically
+jupyter notebook parte1.ipynb
+# Run the whole notebook headless to verify it end to end:
+jupyter nbconvert --to notebook --execute parte1.ipynb --output /tmp/parte1_run.ipynb
+```
+
+The system `python3` (Homebrew 3.14) has no scikit-learn; always use the venv.
 
 ## Data (`data/`)
 
@@ -37,6 +49,8 @@ Violating these yields a grade of 0 for that stage, so check them before proposi
 
 ## Working conventions
 
+- `parte1.ipynb` is a skeleton (section titles and text, empty code cells) that the user fills in themselves, step by step. Do not write solution code into the notebook unless the user explicitly asks for a specific piece; explain or review instead.
 - Notebooks are graded on documentation (15%) and process quality (15%), so notebooks should explain decisions in markdown cells, not just contain code.
+- Custom transformers/functions used inside a pipeline must be defined with `def` inside the notebook itself (no `lambda`, no external `.py`): only the notebook and the `.joblib` are submitted, and the model must reload from them.
 - Use a held-out split or cross-validation from `train.csv` for model selection; the public leaderboard is only a partial sample and the private score decides the final ranking.
 - Submission files must have exactly the columns `id,answer`, cover all 3,000 eval ids, and use the exact label strings `negativo`/`neutral`/`positivo`.
