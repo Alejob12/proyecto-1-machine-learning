@@ -22,4 +22,4 @@ Accuracy CV: validación cruzada de 5 pliegues sobre el 80 % de `train.csv` (mis
 ## Antes de entregar
 - **Modelo a entregar:** el del envío con **mejor score público** (regla del curso). Se espera que sea el 10. Su notebook y su `.joblib` son el par que se sube a Bloque Neón.
 - **Iteraciones 06 a 10:** parten la reseña (última oración, lo que sigue al último conector…) antes de aplicar TF-IDF. Siguen usando solo TF-IDF y clasificadores de scikit-learn, pero `CLAUDE.md` pide **confirmarlo con la profesora o el monitor** antes de entregarlas. Las iteraciones 01 a 05 son el enfoque convencional sin dudas.
-- **Iteración 03:** su modelo (`iter03_tfidf_random_forest.joblib`, 34 MB) no se sube al repositorio. Se regenera al ejecutar su notebook.
+- **Iteración 03:** su modelo (`iter03_tfidf_random_forest.joblib`) pesa 34 MB porque guarda los 300 árboles; los demás pesan menos de 2,2 MB.

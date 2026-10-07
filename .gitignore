@@ -3,4 +3,3 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 venv/
-models/iteraciones/iter03_tfidf_random_forest.joblib
