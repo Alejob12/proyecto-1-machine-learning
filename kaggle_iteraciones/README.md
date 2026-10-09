@@ -15,7 +15,8 @@ Súbanlos **en orden**. Los diez envíos son distintos entre sí: cualquier par 
 | 07 | `iter07_tras_ultimo_conector.csv` | Solo lo que va después del último conector (empeora) | 0,8316 | |
 | 08 | `iter08_tres_vistas.csv` | Texto completo + tras el conector + última oración | 0,8869 | |
 | 09 | `iter09_stacking_de_vistas.csv` | Stacking de un modelo por vista (metamodelo logístico) | 0,8942 | |
-| 10 | `iter10_stacking_boosting.csv` | Stacking ampliado + metamodelo HistGradientBoosting | **0,9012** | |
+| 10 | `iter10_stacking_boosting.csv` | Stacking ampliado + metamodelo HistGradientBoosting | 0,9012 | |
+| 11 | `iter11_nbsvm_negacion_clausulas.csv` | NB-SVM + negación marcada + última cláusula en las vistas de palabras | **0,9076** | |
 
 Accuracy CV: validación cruzada de 5 pliegues sobre el 80 % de `train.csv` (mismo corte y semilla que `parte1convencional.ipynb`). Solo la iteración 10 se evaluó en el 20 % apartado: **0,9083**. Línea base trivial: 0,351.
 
